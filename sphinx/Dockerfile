@@ -1,5 +1,6 @@
 FROM sphinxdoc/sphinx
-# FROM sphinxdoc/sphinx
+ENV REFRESHED_ON 2021-12-26
+ENV VERSION 0.0.1
 
 RUN apt-get update && \
     apt-get -y -q install \
@@ -8,9 +9,6 @@ RUN apt-get update && \
 WORKDIR /docs
 ADD requirements.txt /docs
 RUN pip3 install -r requirements.txt
-
-COPY source /docs/source
-COPY Makefile /docs
 
 WORKDIR /docs
 
